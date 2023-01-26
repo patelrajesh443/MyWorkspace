@@ -1,12 +1,22 @@
 spring:
   application:
-    name: @project.name@
-
+    name: openweathermap
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/openweathermap?createDatabaseIfNotExist=true
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    generate-ddl: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
 openweathermap:
   url: https://api.openweathermap.org/data/2.5/forecast?q=&appid=d2929e9483efc82c82c32ee7e02d563e&units=metric&cnt=10
 springdoc:
   swagger-ui:
     use-root-path: true
-server:
-  servlet:
-    context-path: /@project.name@

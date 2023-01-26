@@ -1,10 +1,14 @@
 import axios from 'axios';
 
-const BASE_URL = "http://localhost:8080/openweathermap/v1/weather/"
+const BASE_URL = "http://localhost:8080/v1/weather/"
+const auth = {
+    username: 'ram', password: 'ram'
+}
 
 class WeatherService {
+
     getWeatherData(country) {
-        return axios.get(BASE_URL + country)
+        return axios.get(BASE_URL + country, {auth})
     }
 }
 
